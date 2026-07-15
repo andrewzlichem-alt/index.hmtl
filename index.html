@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Study Guide</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M3 12h18M3 6h18M3 18h18"/>
+    </svg>
+  </button>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <span class="logo-icon">∑</span>
+      <div>
+        <h1 class="logo-title">Study Guide</h1>
+        <p class="logo-subtitle">Quick reference notes</p>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#geometry-number-theory" class="nav-link">Geometry &amp; Number Theory</a>
+      <a href="#trigonometry-crt-graph" class="nav-link">Trigonometry, CRT &amp; Graph</a>
+      <a href="#analytic-complex-markov" class="nav-link">Analytic, Complex &amp; Markov</a>
+      <a href="#systems-inequalities" class="nav-link">Systems &amp; Inequalities</a>
+      <a href="#counting-group-theory" class="nav-link">Counting &amp; Group Theory</a>
+    </nav>
+    <div class="sidebar-footer">
+      <span class="tag">Geometry</span>
+      <span class="tag">Algebra</span>
+      <span class="tag">Analysis</span>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="page-header">
+      <div class="header-text">
+        <h2>Mathematics Study Guide</h2>
+        <p>Geometry, number theory, trigonometry, inequalities, and more.</p>
+      </div>
+      <div class="search-container">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input
+          type="search"
+          id="searchInput"
+          class="search-input"
+          placeholder="Filter notes… (e.g. AM-GM, Euler, CRT)"
+          autocomplete="off"
+        >
+        <button class="search-clear" id="searchClear" aria-label="Clear search" hidden>&times;</button>
+      </div>
+      <p class="search-status" id="searchStatus" aria-live="polite"></p>
+    </header>
+
+    <section class="section" id="geometry-number-theory">
+      <div class="section-header">
+        <h2 class="section-title">Geometry &amp; Number Theory</h2>
+      </div>
+
+      <article class="card" data-keywords="area ratio triangle equilateral altitude geometry">
+        <h3 class="card-title">Area-2</h3>
+        <div class="card-body">
+          <h4>Ratio of Areas</h4>
+          <div class="formula-block">
+            $$\frac{BP}{CP} = \frac{[\triangle ABP]}{[\triangle ACP]}$$
+            $$\frac{AP}{PE} = \frac{[\triangle ABC]}{[\triangle BCD]}$$
+            $$\frac{CP}{PE} = \frac{[\triangle ABC]}{[\triangle DAB]}$$
+          </div>
+          <ul>
+            <li>$\triangle ABC$ is equilateral. Point $P$ is somewhere inside the triangle.</li>
+            <li>distance from $P$ to $AB$, $BC$, $CA$ = $\text{length of altitude}$.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-keywords="FLT ETT Fermat Euler totient modular arithmetic number theory">
+        <h3 class="card-title">FLT and ETT</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>FLT:</strong> $a^{p-1} \equiv 1 \pmod p$ ($a$ cannot be divisible by $p$, $p$ is prime).</li>
+            <li><strong>ETT:</strong> $a^{\phi(m)} \equiv 1 \pmod m$ where $\lambda(m) \le \phi(m)$. $\lambda(m) = a^k \equiv 1 \pmod m$. If $\gcd(a, m) = 1$, then $a^{\lambda(m)} \equiv 1 \pmod m$.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="trigonometry-crt-graph">
+      <div class="section-header">
+        <h2 class="section-title">Trigonometry, CRT, &amp; Graph Theory</h2>
+      </div>
+
+      <article class="card" data-keywords="trigonometry sine cosine law circumradius">
+        <h3 class="card-title">Trigonometry</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>Law of Sines:</strong>
+              $$\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = 2R \quad (R = \text{circumradius})$$
+            </li>
+            <li><strong>Law of Cosines:</strong>
+              $$c^2 = a^2 + b^2 - 2ab \cos C$$
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-keywords="graph theory Euler Eulerian path cycle degree">
+        <h3 class="card-title">Graph Theory</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>Eulerian Path:</strong> Traverses every edge exactly once. Has an Eulerian path iff $0$ or $2$ vertices have odd degrees.</li>
+            <li><strong>Eulerian Cycle:</strong> Traverses every edge exactly once. Has an Eulerian cycle if every vertex has an even degree.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-keywords="CRT Chinese Remainder Theorem modular congruence">
+        <h3 class="card-title">CRT (Chinese Remainder Theorem)</h3>
+        <div class="card-body">
+          <ul>
+            <li>$m_1, m_2, \dots, m_k$ are pairwise relatively prime.</li>
+            <li>System: $n \equiv a_i \pmod{m_i}$. Has a unique solution $\pmod M$ where $M = m_1 m_2 \dots m_k$.</li>
+            <li><strong>General formula:</strong>
+              $$n = \sum_{j=1}^{k} a_j M_j (M_j^{-1} \pmod{m_j}) \pmod M$$
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="analytic-complex-markov">
+      <div class="section-header">
+        <h2 class="section-title">Analytic Geometry, Complex Numbers, &amp; Markov Chains</h2>
+      </div>
+
+      <article class="card" data-keywords="analytic geometry distance shoelace area line">
+        <h3 class="card-title">Analytic Geometry</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>Distance</strong> from point $(x_0, y_0)$ to line $ax + by + c = 0$:
+              $$d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$$
+            </li>
+            <li><strong>Shoelace Formula:</strong>
+              $$\text{Area} = \frac{1}{2} \left|(x_1y_2 + x_2y_3 + \dots + x_ny_1) - (x_2y_1 + x_3y_2 + \dots + x_1y_n)\right|$$
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-keywords="multiplicative order modular phi totient">
+        <h3 class="card-title">Multiplicative Order</h3>
+        <div class="card-body">
+          <ul>
+            <li>$\text{ord}_m(a)$ is the smallest $k$ such that $a^k \equiv 1 \pmod m$. $\text{ord}_m(a) \mid \phi(m)$.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-keywords="complex numbers roots unity cyclotomic polynomial">
+        <h3 class="card-title">Complex Numbers</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>Roots of Unity:</strong> $z^n = 1$. $z = e^{i\left(\frac{2k\pi}{n}\right)} = \text{cis}\left(\frac{2k\pi}{n}\right)$.</li>
+            <li><strong>Cyclotomic Polynomial:</strong> monic polynomial whose roots are primitive $n$-th roots of unity. Degree = $\phi(n)$.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-keywords="Markov chains states probability diagram">
+        <h3 class="card-title">States and Markov Chains</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>State Diagrams:</strong> $E_0 \rightarrow E_1 \rightarrow E_2$. Probabilities add up to $1$. Write each state as a product of another state.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="systems-inequalities">
+      <div class="section-header">
+        <h2 class="section-title">Systems of Equations &amp; Inequalities</h2>
+      </div>
+
+      <article class="card" data-keywords="linear systems equations Vieta symmetric">
+        <h3 class="card-title">Linear Systems</h3>
+        <div class="card-body">
+          <ul>
+            <li>Unique solution if equations are concurrent, independent, and consistent. Use symmetric properties or Vieta's.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-keywords="generating functions convolution closed form binomial">
+        <h3 class="card-title">Generating Functions</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>Ordinary:</strong> $A(x) = \sum_{n=0}^{\infty} a_n x^n$</li>
+            <li><strong>Convolution:</strong> $C_n = \sum_{i=0}^{n} a_i b_{n-i}$</li>
+            <li><strong>Closed forms:</strong> $\frac{1}{1-x} = 1 + x + x^2 + \dots$ and $\frac{1}{(1-x)^{k+1}} = \sum_{n=0}^{\infty} \binom{n+k}{k} x^n$</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-keywords="inequalities AM-GM Cauchy-Schwarz weighted">
+        <h3 class="card-title">Inequalities</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>Weighted AM-GM:</strong>
+              $$\frac{w_1x_1 + \dots + w_nx_n}{w_1 + \dots + w_n} \ge \sqrt[w_1+\dots+w_n]{x_1^{w_1}\dots x_n^{w_n}}$$
+            </li>
+            <li><strong>Cauchy-Schwarz:</strong>
+              $$(x_1^2 + \dots + x_n^2)(y_1^2 + \dots + y_n^2) \ge (x_1y_1 + \dots + x_ny_n)^2$$
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="counting-group-theory">
+      <div class="section-header">
+        <h2 class="section-title">Advanced Counting &amp; Group Theory</h2>
+      </div>
+
+      <article class="card" data-keywords="counting roots unity filter Burnside lemma">
+        <h3 class="card-title">Advanced Counting</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>Roots of Unity Filter:</strong>
+              $$\sum_{k=0}^{\infty} a_{kn} x^{kn} = \frac{P(1) + P(\omega) + \dots + P(\omega^{n-1})}{n}$$
+            </li>
+            <li><strong>Burnside's Lemma:</strong>
+              $$|X / G| = \frac{1}{|G|} \sum_{g \in G} |X^g|$$
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-keywords="group theory closure associativity identity inverse">
+        <h3 class="card-title">Group Theory</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>Group definition:</strong> Closure, Associativity, Identity ($e$), Inverse ($a^{-1}$).</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-keywords="Diophantine Chicken Mcnugget primes mod 4">
+        <h3 class="card-title">Diophantine Equations</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>Chicken McNugget Theorem:</strong> Max non-expressible = $ab - a - b$ for coprime $a, b$.</li>
+            <li>$a^2 + b^2$: No primes congruent to $3 \pmod 4$ raised to an odd power.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-keywords="primitive roots LTE lifting exponent modular">
+        <h3 class="card-title">Primitive Roots and LTE</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>Primitive root:</strong> $\text{ord}_m(g) = \phi(m)$. Exists if $m = 2, 4, p^k, 2p^k$.</li>
+            <li><strong>LTE Lemma:</strong> If $p \nmid x - y$, then $v_p(x^n - y^n) = v_p(x - y) + v_p(n)$</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-keywords="3D geometry Euler formula cone volume surface area">
+        <h3 class="card-title">3D Geometry</h3>
+        <div class="card-body">
+          <ul>
+            <li><strong>Euler's Formula:</strong> $F + V = E + 2$</li>
+            <li><strong>Right Cone:</strong> $\text{Volume} = \frac{1}{3} \pi r^2 h$, $\text{Surface Area} = \pi r^2 + \pi r \sqrt{r^2 + h^2}$</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <footer class="page-footer">
+      <p>Math Study Guide</p>
+    </footer>
+  </main>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: "global"
+      },
+      options: {
+        skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const searchInput = document.getElementById("searchInput");
+      const searchClear = document.getElementById("searchClear");
+      const searchStatus = document.getElementById("searchStatus");
+      const cards = document.querySelectorAll(".card");
+      const sections = document.querySelectorAll(".section");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const sidebar = document.getElementById("sidebar");
+      const sidebarToggle = document.getElementById("sidebarToggle");
+      const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+      function normalize(text) {
+        return text.toLowerCase().replace(/\s+/g, " ").trim();
+      }
+
+      function filterNotes(query) {
+        const q = normalize(query);
+        let visibleCards = 0;
+        let totalCards = cards.length;
+
+        cards.forEach(card => {
+          const keywords = card.dataset.keywords || "";
+          const text = card.textContent || "";
+          const haystack = normalize(keywords + " " + text);
+          const match = !q || haystack.includes(q);
+          card.classList.toggle("hidden", !match);
+          if (match) visibleCards++;
+        });
+
+        sections.forEach(section => {
+          const visibleInSection = section.querySelectorAll(".card:not(.hidden)").length;
+          section.classList.toggle("section-empty", visibleInSection === 0);
+        });
+
+        if (q) {
+          searchStatus.textContent = visibleCards === 0
+            ? `No results for "${query}"`
+            : `Showing ${visibleCards} of ${totalCards} notes`;
+        } else {
+          searchStatus.textContent = "";
+        }
+
+        searchClear.hidden = !q;
+      }
+
+      searchInput.addEventListener("input", (e) => filterNotes(e.target.value));
+      searchClear.addEventListener("click", () => {
+        searchInput.value = "";
+        filterNotes("");
+        searchInput.focus();
+      });
+
+      navLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            sidebar.classList.remove("open");
+            sidebarOverlay.classList.remove("visible");
+          }
+        });
+      });
+
+      sidebarToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+        sidebarOverlay.classList.toggle("visible");
+      });
+
+      sidebarOverlay.addEventListener("click", () => {
+        sidebar.classList.remove("open");
+        sidebarOverlay.classList.remove("visible");
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              navLinks.forEach(link => {
+                link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+              });
+            }
+          });
+        },
+        { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
+      );
+
+      sections.forEach(section => observer.observe(section));
+
+      const runTypeset = () => {
+        if (window.MathJax?.typesetPromise) {
+          MathJax.typesetPromise().catch(err => console.warn("MathJax:", err));
+        }
+      };
+
+      if (window.MathJax?.startup?.promise) {
+        MathJax.startup.promise.then(runTypeset);
+      } else {
+        runTypeset();
+      }
+    });
+  </script>
+</body>
+</html>
